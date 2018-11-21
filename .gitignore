@@ -3,3 +3,17 @@
 ################################################################################
 
 *.sln
+*.vcxproj
+*.filters
+*.user
+*.json
+*.sqlite
+*.opendb
+*.db
+*.suo
+*.ipch
+*.lastbuildstate
+*.tlog
+*.ilk
+*.pdb
+*.obj

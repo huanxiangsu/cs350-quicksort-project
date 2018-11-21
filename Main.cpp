@@ -10,12 +10,13 @@ using Clock=std::chrono::high_resolution_clock;
 int main()
 {
     srand((unsigned int)time(NULL));
-    int size = 10000, array[size];
+	int size = 10000;
+	int* array = new int[size];
     for(int i = 0; i < size; ++i)
     {
         array[i] = rand() % 100;
     }
     TestQuicksortRdH(array, size);
-    
+	delete[] array;
     return 0;
 }
