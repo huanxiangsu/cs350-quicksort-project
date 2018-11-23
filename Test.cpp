@@ -9,6 +9,7 @@ using Clock=std::chrono::high_resolution_clock;
 void    TestQuicksortRtL(int array[], int size)
 {
     int* copy = new int[size];
+    double average_time = 0;
     cout << "==TESTING QUICKSORT RIGHT LOMUTO==" << endl;
     // copy the original array each iteration and quicksort on the copy
     for (int i = 0; i < 5; i++)
@@ -19,9 +20,13 @@ void    TestQuicksortRtL(int array[], int size)
         auto end = Clock::now();
         chrono::duration<double> diff = end - start;
         cout << "RANDOM INPUT: " << diff.count() << endl;
+        average_time += diff.count();
     }
+    cout << "Average time for RAMDOM INPUT: " << average_time / 5 << endl << endl;
+    average_time = 0;
+    
     // sort the original array and then test quicksort on it
-    QuicksortRtL(array, 0, size - 1);
+    //QuicksortRtL(array, 0, size - 1);  //looks like int *copy is already sorted above, so no need to sort this array
     for (int i = 0; i < 5; i++)
     {
         auto start = Clock::now();
@@ -29,14 +34,17 @@ void    TestQuicksortRtL(int array[], int size)
         auto end = Clock::now();
         chrono::duration<double> diff = end - start;
         cout << "SORTED INPUT: " << diff.count() << endl;
+        average_time += diff.count();
     }
 	delete[] copy;
+    cout << "Average time for SORTED INPUT: " << average_time / 5 << endl << endl;
 }
 
 // Tests Hoare partitioning with a rightmost pivot on random and sorted inputs 5 times
 void    TestQuicksortRtH(int array[], int size)
 {
     int* copy = new int[size];
+    double average_time = 0;
     cout << "==TESTING QUICKSORT RIGHT HOARE==" << endl;
     // copy the original array each iteration and quicksort on the copy
     for (int i = 0; i < 5; i++)
@@ -47,9 +55,13 @@ void    TestQuicksortRtH(int array[], int size)
         auto end = Clock::now();
         chrono::duration<double> diff = end - start;
         cout << "RANDOM INPUT: " << diff.count() << endl;
+        average_time += diff.count();
     }
+    cout << "Average time for RAMDOM INPUT: " << average_time / 5 << endl << endl;
+    average_time = 0;
+    
     // sort the original array and then test quicksort on it
-    QuicksortRtH(array, 0, size - 1);
+    //QuicksortRtH(array, 0, size - 1);
     for (int i = 0; i < 5; i++)
     {
         auto start = Clock::now();
@@ -57,14 +69,17 @@ void    TestQuicksortRtH(int array[], int size)
         auto end = Clock::now();
         chrono::duration<double> diff = end - start;
         cout << "SORTED INPUT: " << diff.count() << endl;
+        average_time += diff.count();
     }
 	delete[] copy;
+    cout << "Average time for SORTED INPUT: " << average_time / 5 << endl << endl;
 }
 
 // Tests Lomuto partitioning with a random pivot on random and sorted inputs 5 times
 void    TestQuicksortRdL(int array[], int size)
 {
     int* copy = new int[size];
+    double average_time = 0;
     cout << "==TESTING QUICKSORT RANDOM LOMUTO==" << endl;
     // copy the original array each iteration and quicksort on the copy
     for (int i = 0; i < 5; i++)
@@ -75,9 +90,13 @@ void    TestQuicksortRdL(int array[], int size)
         auto end = Clock::now();
         chrono::duration<double> diff = end - start;
         cout << "RANDOM INPUT: " << diff.count() << endl;
+        average_time += diff.count();
     }
+    cout << "Average time for RAMDOM INPUT: " << average_time / 5 << endl << endl;
+    average_time = 0;
+    
     // sort the original array and then test quicksort on it
-    QuicksortRdL(array, 0, size - 1);
+    //QuicksortRdL(array, 0, size - 1);
     for (int i = 0; i < 5; i++)
     {
         auto start = Clock::now();
@@ -85,14 +104,17 @@ void    TestQuicksortRdL(int array[], int size)
         auto end = Clock::now();
         chrono::duration<double> diff = end - start;
         cout << "SORTED INPUT: " << diff.count() << endl;
+        average_time += diff.count();
     }
 	delete[] copy;
+    cout << "Average time for SORTED INPUT: " << average_time / 5 << endl << endl;
 }
 
 // Tests Hoare partitioning with a random pivot on random and sorted inputs 5 times
 void    TestQuicksortRdH(int array[], int size)
 {
     int* copy = new int[size];
+    double average_time = 0;
     cout << "==TESTING QUICKSORT RANDOM HOARE==" << endl;
     // copy the original array each iteration and quicksort on the copy
     for (int i = 0; i < 5; i++)
@@ -103,9 +125,13 @@ void    TestQuicksortRdH(int array[], int size)
         auto end = Clock::now();
         chrono::duration<double> diff = end - start;
         cout << "RANDOM INPUT: " << diff.count() << endl;
+        average_time += diff.count();
     }
+    cout << "Average time for RAMDOM INPUT: " << average_time / 5 << endl << endl;
+    average_time = 0;
+    
     // sort the original array and then test quicksort on it
-    QuicksortRdH(array, 0, size - 1);
+    //QuicksortRdH(array, 0, size - 1);
     for (int i = 0; i < 5; i++)
     {
         auto start = Clock::now();
@@ -113,14 +139,17 @@ void    TestQuicksortRdH(int array[], int size)
         auto end = Clock::now();
         chrono::duration<double> diff = end - start;
         cout << "SORTED INPUT: " << diff.count() << endl;
+        average_time += diff.count();
     }
 	delete[] copy;
+    cout << "Average time for SORTED INPUT: " << average_time / 5 << endl << endl;
 }
 
 // Tests Lomuto partitioning with a median pivot on random and sorted inputs 5 times
 void    TestQuicksortMdL(int array[], int size)
 {
     int* copy = new int[size];
+    double average_time = 0;
     cout << "==TESTING QUICKSORT MEDIAN LOMUTO==" << endl;
     // copy the original array each iteration and quicksort on the copy
     for (int i = 0; i < 5; i++)
@@ -131,9 +160,13 @@ void    TestQuicksortMdL(int array[], int size)
         auto end = Clock::now();
         chrono::duration<double> diff = end - start;
         cout << "RANDOM INPUT: " << diff.count() << endl;
+        average_time += diff.count();
     }
+    cout << "Average time for RAMDOM INPUT: " << average_time / 5 << endl << endl;
+    average_time = 0;
+    
     // sort the original array and then test quicksort on it
-    QuicksortMdL(array, 0, size - 1);
+    //QuicksortMdL(array, 0, size - 1);
     for (int i = 0; i < 5; i++)
     {
         auto start = Clock::now();
@@ -141,14 +174,17 @@ void    TestQuicksortMdL(int array[], int size)
         auto end = Clock::now();
         chrono::duration<double> diff = end - start;
         cout << "SORTED INPUT: " << diff.count() << endl;
+        average_time += diff.count();
     }
 	delete[] copy;
+    cout << "Average time for SORTED INPUT: " << average_time / 5 << endl << endl;
 }
 
 // Tests Hoare partitioning with a median pivot on random and sorted inputs 5 times
 void    TestQuicksortMdH(int array[], int size)
 {
     int* copy = new int[size];
+    double average_time = 0;
     cout << "==TESTING QUICKSORT MEDIAN HOARE==" << endl;
     // copy the original array each iteration and quicksort on the copy
     for (int i = 0; i < 5; i++)
@@ -159,9 +195,13 @@ void    TestQuicksortMdH(int array[], int size)
         auto end = Clock::now();
         chrono::duration<double> diff = end - start;
         cout << "RANDOM INPUT: " << diff.count() << endl;
+        average_time += diff.count();
     }
+    cout << "Average time for RAMDOM INPUT: " << average_time / 5 << endl << endl;
+    average_time = 0;
+    
     // sort the original array and then test quicksort on it
-    QuicksortMdH(array, 0, size - 1);
+    //QuicksortMdH(array, 0, size - 1);
     for (int i = 0; i < 5; i++)
     {
         auto start = Clock::now();
@@ -169,8 +209,10 @@ void    TestQuicksortMdH(int array[], int size)
         auto end = Clock::now();
         chrono::duration<double> diff = end - start;
         cout << "SORTED INPUT: " << diff.count() << endl;
+        average_time += diff.count();
     }
 	delete[] copy;
+    cout << "Average time for SORTED INPUT: " << average_time / 5 << endl << endl;
 }
 
 // Copies an array for the testing functions
