@@ -18,6 +18,8 @@ void output_array(int array[], int size){
 
 int main(int argc, char *argv[])
 {
+	cout << fixed;
+	cout.precision(10);
 /*
     srand((unsigned int)time(NULL));
 	int size = 10000;

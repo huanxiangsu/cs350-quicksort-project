@@ -21,6 +21,6 @@ void    TestQuicksortMdL(int array[], int size);
 void    TestQuicksortMdH(int array[], int size);
 
 void CopyArray(int src[], int copy[], int size);
-
+void ReverseArray(int src[], int size);
 
 #endif
