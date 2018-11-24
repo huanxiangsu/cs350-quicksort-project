@@ -248,3 +248,53 @@ double TimeIt(void(*qsort)(int*, int, int), int* copy, int size, const char* typ
 	cout << type << diff.count() << endl;
 	return diff.count();
 }
+
+
+// compare function used in the library quicksort
+int compare(const void * a, const void * b){
+    return ( *(int*)a - *(int*)b);
+}
+
+
+// function to record the time for the library quicksort.
+// type == 1 : Random input
+// type == 2 : Sorted input
+// type == 3 : Reversed Sorted input
+int test_qsort(int array[], int size, int type)
+{
+    //int copy[size];
+    int* copy = new int[size];
+    CopyArray(array, copy, size);
+    
+    if(type == 1)
+    {
+        auto start = Clock::now();
+        qsort(copy, size, sizeof(int), compare);
+        auto end = Clock::now();
+        chrono::duration<double> diff = end - start;
+        cout << "RANDOM INPUT in library qsort: " << diff.count() << endl;
+        return diff.count();
+    }
+    else if(type == 2)
+    {
+        qsort(copy, size, sizeof(int), compare);  // sorted the array first
+        auto start = Clock::now();
+        qsort(copy, size, sizeof(int), compare);
+        auto end = Clock::now();
+        chrono::duration<double> diff = end - start;
+        cout << "SORTED INPUT in library qsort: " << diff.count() << endl;
+        return diff.count();
+    }
+    else
+    {
+        qsort(copy, size, sizeof(int), compare);  // sorted the array first
+        ReverseArray(copy, size);  // then reserve it
+        auto start = Clock::now();
+        qsort(copy, size, sizeof(int), compare);
+        auto end = Clock::now();
+        chrono::duration<double> diff = end - start;
+        cout << "REVERSE SORTED INPUT in library qsort: " << diff.count() << endl;
+        return diff.count();
+    }
+    delete[] copy;
+}
