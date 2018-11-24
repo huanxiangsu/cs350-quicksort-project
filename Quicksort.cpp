@@ -4,7 +4,7 @@
  *     First letter:
  *         Rt = Pivot is right-most element
  *         Md = Pivot is median-of-three
- *         rD = Pivot is randomly picked
+ *         Rd = Pivot is randomly picked
  *     Second Letter:
  *         L = Lomuto partitioning
  *         H = Hoare partitioning

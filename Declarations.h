@@ -22,5 +22,6 @@ void    TestQuicksortMdH(int array[], int size);
 
 void CopyArray(int src[], int copy[], int size);
 void ReverseArray(int src[], int size);
+double TimeIt(void(*qsort)(int*, int, int), int* copy, int size, const char* type);
 
 #endif
