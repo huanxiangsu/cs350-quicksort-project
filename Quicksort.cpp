@@ -92,7 +92,8 @@ void QuicksortMdL(int array[], int left, int right)
         return;
     
     // find median of first, middle and last element
-    int median = max(min(array[left],array[right]), min(max(array[left],array[right]), array[right / 2]));
+    int mid = (right - left) / 2 + left;
+    int median = max(min(array[left],array[right]), min(max(array[left],array[right]), array[mid]));
     // check if median was first or middle element and do a swap if it's either
     if (median == array[left])
     {
@@ -121,7 +122,7 @@ void QuicksortMdH(int array[], int left, int right)
         return;
     
     // find median of first, middle and last element
-    int mid = right / 2;
+    int mid = (right - left) / 2 + left;
     int median = max(min(array[left],array[right]), min(max(array[left],array[right]), array[mid]));
     // check if median was first or middle element and do a swap if it's either
     if (median == array[left])
