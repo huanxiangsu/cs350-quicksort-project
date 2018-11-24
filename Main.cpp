@@ -39,13 +39,18 @@ int main(int argc, char *argv[])
         size = atoi(argv[1]);
     else
         size = 10000;
-    cout << "Input size is " << size << endl;
+    cout << "Input size is " << size << endl << endl;
     
     int* array = new int[size];
     for(int i = 0; i < size; ++i)
     {
         array[i] = rand() % 1000;
     }
+    
+    test_qsort(array, size, 1);  // random input
+    test_qsort(array, size, 2);  // sorted input
+    test_qsort(array, size, 3);  // reversed sorted input
+    cout << endl;
     
     //output_array(array, size);
     TestQuicksortRtL(array, size);  // right
