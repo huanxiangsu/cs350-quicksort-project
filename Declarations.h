@@ -24,4 +24,8 @@ void CopyArray(int src[], int copy[], int size);
 void ReverseArray(int src[], int size);
 double TimeIt(void(*qsort)(int*, int, int), int* copy, int size, const char* type);
 
+void output_array(int array[], int size);
+int compare(const void * a, const void * b);  // for library qsort
+int test_qsort(int array[], int size, int type);
+
 #endif
