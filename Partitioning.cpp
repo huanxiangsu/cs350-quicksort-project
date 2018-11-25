@@ -37,7 +37,7 @@ Hoare(int array[], int left, int right)
     {
         while (array[i] < pivot)
             ++i;
-        while (array[j] >= pivot)
+        while (array[j] >= pivot && j >= 0)
             --j;
         temp = array[i];
         array[i] = array[j];
