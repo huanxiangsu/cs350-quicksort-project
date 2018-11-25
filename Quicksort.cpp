@@ -15,6 +15,7 @@
 #include <algorithm>
 using namespace std;
 
+/*
 // Uses right most as pivot
 // Uses Lomuto Partitioning
 void QuicksortRtL(int array[], int left, int right)
@@ -28,7 +29,32 @@ void QuicksortRtL(int array[], int left, int right)
     QuicksortRtL(array, left, pivot - 1);
     QuicksortRtL(array, pivot + 1, right);
 }
+*/
 
+// this version does not cause stack overflow
+void QuicksortRtL(int array[], int left, int right)
+{
+    while(left < right)
+    {
+        int pivot = Lomuto(array, left, right);
+        
+        if((pivot-1) - left <= right - (pivot+1))
+        {
+            QuicksortRtL(array, left, pivot - 1);
+            // Prepare for tail recursion
+            left = pivot + 1;
+        }
+        else
+        {
+            QuicksortRtL(array, pivot + 1, right);
+            // Prepare for tail recursion
+            right = pivot - 1;
+        }
+    }
+}
+
+
+/*
 // Uses right most as pivot
 // Uses Hoare Partitioning
 void QuicksortRtH(int array[], int left, int right)
@@ -41,6 +67,30 @@ void QuicksortRtH(int array[], int left, int right)
     QuicksortRtH(array, left, pivot - 1);
     QuicksortRtH(array, pivot + 1, right);
 }
+*/
+
+// this version does not cause stack overflow
+void QuicksortRtH(int array[], int left, int right)
+{
+    while(left < right)
+    {
+        int pivot = Hoare(array, left, right);
+        
+        if((pivot-1) - left <= right - (pivot+1))
+        {
+            QuicksortRtL(array, left, pivot - 1);
+            // Prepare for tail recursion
+            left = pivot + 1;
+        }
+        else
+        {
+            QuicksortRtL(array, pivot + 1, right);
+            // Prepare for tail recursion
+            right = pivot - 1;
+        }
+    }
+}
+
 
 // Uses random as pivot
 // Uses Lomuto Partitioning
@@ -84,6 +134,8 @@ void QuicksortRdH(int array[], int left, int right)
     QuicksortRdH(array, pivot + 1, right);
 }
 
+
+/*
 // Uses median of first, last and middle element as pivot
 // Uses Lomuto Partitioning
 void QuicksortMdL(int array[], int left, int right)
@@ -113,6 +165,46 @@ void QuicksortMdL(int array[], int left, int right)
     QuicksortMdL(array, left, pivot - 1);
     QuicksortMdL(array, pivot + 1, right);
 }
+*/
+
+// another version
+void QuicksortMdL(int array[], int left, int right)
+{
+    while(left < right)
+    {
+        // find median of first, middle and last element
+        //int mid = right / 2;
+        int mid = (right - left) / 2 + left;
+        int median = max(min(array[left],array[right]), min(max(array[left],array[right]), array[mid]));
+        // check if median was first or middle element and do a swap if it's either
+        if (median == array[left])
+        {
+            int temp = array[left];
+            array[left] = array[right];
+            array[right] = temp;
+        }
+        else if (median == array[mid])
+        {
+            int temp = array[mid];
+            array[mid] = array[right];
+            array[right] = temp;
+        }
+        
+        int pivot = Lomuto(array, left, right);
+        
+        if((pivot-1) - left <= right - (pivot+1))
+        {
+            QuicksortMdH(array, left, pivot - 1);
+            left = pivot + 1;
+        }
+        else
+        {
+            QuicksortMdH(array, pivot + 1, right);
+            right = pivot - 1;
+        }
+    }
+}
+
 
 /*
 // Uses median of first, last and middle element as pivot
@@ -174,7 +266,7 @@ void QuicksortMdH(int array[], int left, int right)
         
         int pivot = Hoare(array, left, right);
         
-        if(pivot - left <= right - (pivot+1))
+        if((pivot-1) - left <= right - (pivot+1))
         {
             QuicksortMdH(array, left, pivot - 1);
             left = pivot + 1;
@@ -182,7 +274,7 @@ void QuicksortMdH(int array[], int left, int right)
         else
         {
             QuicksortMdH(array, pivot + 1, right);
-            right = pivot;
+            right = pivot - 1;
         }
     }
 }
