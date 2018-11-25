@@ -17,6 +17,7 @@ void    TestQuicksortRtL(int array[], int size, int num)
         CopyArray(array, copy, size);
 		average_time += TimeIt(QuicksortRtL,copy,size,"RANDOM INPUT: ");
 		//test_result(copy, size);
+		//test_correctness(array, copy, size);
     }
     cout << "Average time for RANDOM INPUT: " << average_time / num << endl << endl;
     
@@ -27,6 +28,7 @@ void    TestQuicksortRtL(int array[], int size, int num)
     {
 		average_time += TimeIt(QuicksortRtL, copy, size, "SORTED INPUT: ");
 		//test_result(copy, size);
+		//test_correctness(array, copy, size);
     }
 	cout << "Average time for SORTED INPUT: " << average_time / num << endl << endl;
 
@@ -37,6 +39,7 @@ void    TestQuicksortRtL(int array[], int size, int num)
 		ReverseArray(copy, size);
 		average_time += TimeIt(QuicksortRtL, copy, size, "REVERSE SORTED INPUT: ");
 		//test_result(copy, size);
+		//test_correctness(array, copy, size);
 	}
 	cout << "Average time for REVERSE SORTED INPUT: " << average_time / num << endl << endl;
 
@@ -55,6 +58,7 @@ void    TestQuicksortRtH(int array[], int size, int num)
         CopyArray(array, copy, size);
 		average_time += TimeIt(QuicksortRtH, copy, size, "RANDOM INPUT: ");
 		//test_result(copy, size);
+		//test_correctness(array, copy, size);
     }
     cout << "Average time for RANDOM INPUT: " << average_time / num << endl << endl;
     
@@ -65,6 +69,7 @@ void    TestQuicksortRtH(int array[], int size, int num)
 	{
 		average_time += TimeIt(QuicksortRtH, copy, size, "SORTED INPUT: ");
 		//test_result(copy, size);
+		//test_correctness(array, copy, size);
 	}
 	cout << "Average time for SORTED INPUT: " << average_time / num << endl << endl;
 
@@ -75,6 +80,7 @@ void    TestQuicksortRtH(int array[], int size, int num)
 		ReverseArray(copy, size);
 		average_time += TimeIt(QuicksortRtH, copy, size, "REVERSE SORTED INPUT: ");
 		//test_result(copy, size);
+		//test_correctness(array, copy, size);
 	}
 	cout << "Average time for REVERSE SORTED INPUT: " << average_time / num << endl << endl;
 
@@ -93,6 +99,7 @@ void    TestQuicksortRdL(int array[], int size, int num)
         CopyArray(array, copy, size);
 		average_time += TimeIt(QuicksortRdL, copy, size, "RANDOM INPUT: ");
 		//test_result(copy, size);
+		//test_correctness(array, copy, size);
     }
     cout << "Average time for RANDOM INPUT: " << average_time / num << endl << endl;
     
@@ -103,6 +110,7 @@ void    TestQuicksortRdL(int array[], int size, int num)
 	{
 		average_time += TimeIt(QuicksortRdL, copy, size, "SORTED INPUT: ");
 		//test_result(copy, size);
+		//test_correctness(array, copy, size);
 	}
 	cout << "Average time for SORTED INPUT: " << average_time / num << endl << endl;
 
@@ -113,6 +121,7 @@ void    TestQuicksortRdL(int array[], int size, int num)
 		ReverseArray(copy, size);
 		average_time += TimeIt(QuicksortRdL, copy, size, "REVERSE SORTED INPUT: ");
 		//test_result(copy, size);
+		//test_correctness(array, copy, size);
 	}
 	cout << "Average time for REVERSE SORTED INPUT: " << average_time / num << endl << endl;
 
@@ -131,6 +140,7 @@ void    TestQuicksortRdH(int array[], int size, int num)
         CopyArray(array, copy, size);
 		average_time += TimeIt(QuicksortRdH, copy, size, "RANDOM INPUT: ");
 		//test_result(copy, size);
+		//test_correctness(array, copy, size);
     }
     cout << "Average time for RANDOM INPUT: " << average_time / num << endl << endl;
     
@@ -141,6 +151,7 @@ void    TestQuicksortRdH(int array[], int size, int num)
 	{
 		average_time += TimeIt(QuicksortRdH, copy, size, "SORTED INPUT: ");
 		//test_result(copy, size);
+		//test_correctness(array, copy, size);
 	}
 	cout << "Average time for SORTED INPUT: " << average_time / num << endl << endl;
 
@@ -151,6 +162,7 @@ void    TestQuicksortRdH(int array[], int size, int num)
 		ReverseArray(copy, size);
 		average_time += TimeIt(QuicksortRdH, copy, size, "REVERSE SORTED INPUT: ");
 		//test_result(copy, size);
+		//test_correctness(array, copy, size);
 	}
 	cout << "Average time for REVERSE SORTED INPUT: " << average_time / num << endl << endl;
 
@@ -169,6 +181,7 @@ void    TestQuicksortMdL(int array[], int size, int num)
         CopyArray(array, copy, size);
 		average_time += TimeIt(QuicksortMdL, copy, size, "RANDOM INPUT: ");
 		//test_result(copy, size);
+		//test_correctness(array, copy, size);
     }
     cout << "Average time for RANDOM INPUT: " << average_time / num << endl << endl;
     
@@ -179,6 +192,7 @@ void    TestQuicksortMdL(int array[], int size, int num)
 	{
 		average_time += TimeIt(QuicksortMdL, copy, size, "SORTED INPUT: ");
 		//test_result(copy, size);
+		//test_correctness(array, copy, size);
 	}
 	cout << "Average time for SORTED INPUT: " << average_time / num << endl << endl;
 
@@ -189,6 +203,7 @@ void    TestQuicksortMdL(int array[], int size, int num)
 		ReverseArray(copy, size);
 		average_time += TimeIt(QuicksortMdL, copy, size, "REVERSE SORTED INPUT: ");
 		//test_result(copy, size);
+		//test_correctness(array, copy, size);
 	}
 	cout << "Average time for REVERSE SORTED INPUT: " << average_time / num << endl << endl;
 
@@ -207,6 +222,7 @@ void    TestQuicksortMdH(int array[], int size, int num)
         CopyArray(array, copy, size);
 		average_time += TimeIt(QuicksortMdH, copy, size, "RANDOM INPUT: ");
 		test_result(copy, size);
+		test_correctness(array, copy, size);
     }
     cout << "Average time for RANDOM INPUT: " << average_time / num << endl << endl;
     
@@ -217,6 +233,7 @@ void    TestQuicksortMdH(int array[], int size, int num)
 	{
 		average_time += TimeIt(QuicksortMdH, copy, size, "SORTED INPUT: ");
 		test_result(copy, size);
+		test_correctness(array, copy, size);
 	}
 	cout << "Average time for SORTED INPUT: " << average_time / num << endl << endl;
 
@@ -227,6 +244,7 @@ void    TestQuicksortMdH(int array[], int size, int num)
 		ReverseArray(copy, size);
 		average_time += TimeIt(QuicksortMdH, copy, size, "REVERSE SORTED INPUT: ");
 		test_result(copy, size);
+		test_correctness(array, copy, size);
 	}
 	cout << "Average time for REVERSE SORTED INPUT: " << average_time / num << endl << endl;
 
@@ -326,9 +344,30 @@ void test_result(int array[], int size)
     {
         if(array[i] < array[i - 1])
 		{
-            cout << "Test FAILED" << endl;
+            cout << "Test Sorted: FAILED" << endl;
 			return;
 		}
     }
-    cout << "Test PASSED" << endl;
+    cout << "Test Sorted: PASSED" << endl;
+}
+
+// to check if two arrays have the same value and same ordering.
+void test_correctness(int src[], int array[], int size)
+{
+    int failed = false;
+    int *source = new int[size];
+    CopyArray(src, source, size);  // copy to avoid change the original array
+    qsort(source, size, sizeof(int), compare); // sort original array using library quicksort
+    for(int i = 0; i < size; ++i)
+    {
+        if(source[i] != array[i])  // compare value and ordering, if not match, failed
+        {
+            failed = true;
+            break;
+        }
+    }
+    if(failed == true)
+        cout << "Test Data Correctness: FAILED" << endl;
+    cout << "Test Data Correctness: PASSED" << endl;
+	delete[] source;
 }
