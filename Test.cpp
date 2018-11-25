@@ -325,7 +325,10 @@ void test_result(int array[], int size)
     for(int i = 1; i < size; ++i)
     {
         if(array[i] < array[i - 1])
+		{
             cout << "Test FAILED" << endl;
+			return;
+		}
     }
     cout << "Test PASSED" << endl;
 }
