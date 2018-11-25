@@ -44,21 +44,21 @@ int main(int argc, char *argv[])
     int* array = new int[size];
     for(int i = 0; i < size; ++i)
     {
-        array[i] = rand() % 1000;
+        array[i] = rand() % 10000;
     }
     
     test_qsort(array, size, 1);  // random input
     test_qsort(array, size, 2);  // sorted input
     test_qsort(array, size, 3);  // reversed sorted input
-    cout << endl;
+    cout << endl << endl;
     
     //output_array(array, size);
-    TestQuicksortRtL(array, size);  // right
-    TestQuicksortRtH(array, size);
-    TestQuicksortRdL(array, size);  // random
-    TestQuicksortRdH(array, size);
-    TestQuicksortMdL(array, size);  // median
-    TestQuicksortMdH(array, size);
+    TestQuicksortRtL(array, size, 5);  // right
+    TestQuicksortRtH(array, size, 5);
+    TestQuicksortRdL(array, size, 5);  // random
+    TestQuicksortRdH(array, size, 5);
+    TestQuicksortMdL(array, size, 5);  // median
+    TestQuicksortMdH(array, size, 5);
     //output_array(array, size);
     delete[] array;
     
