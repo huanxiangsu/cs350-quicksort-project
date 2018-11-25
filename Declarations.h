@@ -13,12 +13,12 @@ void    QuicksortRdH(int array[], int left, int right);
 void    QuicksortMdL(int array[], int left, int right);
 void    QuicksortMdH(int array[], int left, int right);
 
-void    TestQuicksortRtL(int array[], int size);
-void    TestQuicksortRtH(int array[], int size);
-void    TestQuicksortRdL(int array[], int size);
-void    TestQuicksortRdH(int array[], int size);
-void    TestQuicksortMdL(int array[], int size);
-void    TestQuicksortMdH(int array[], int size);
+void    TestQuicksortRtL(int array[], int size, int num);
+void    TestQuicksortRtH(int array[], int size, int num);
+void    TestQuicksortRdL(int array[], int size, int num);
+void    TestQuicksortRdH(int array[], int size, int num);
+void    TestQuicksortMdL(int array[], int size, int num);
+void    TestQuicksortMdH(int array[], int size, int num);
 
 void CopyArray(int src[], int copy[], int size);
 void ReverseArray(int src[], int size);
