@@ -27,5 +27,6 @@ double TimeIt(void(*qsort)(int*, int, int), int* copy, int size, const char* typ
 void output_array(int array[], int size);
 int compare(const void * a, const void * b);  // for library qsort
 int test_qsort(int array[], int size, int type);
+void test_result(int array[], int size);  // test if the array is actually sorted.
 
 #endif
