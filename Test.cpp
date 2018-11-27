@@ -354,7 +354,7 @@ void test_result(int array[], int size)
 // to check if two arrays have the same value and same ordering.
 void test_correctness(int src[], int array[], int size)
 {
-    int failed = false;
+    bool failed = false;
     int *source = new int[size];
     CopyArray(src, source, size);  // copy to avoid change the original array
     qsort(source, size, sizeof(int), compare); // sort original array using library quicksort
@@ -366,8 +366,9 @@ void test_correctness(int src[], int array[], int size)
             break;
         }
     }
-    if(failed == true)
+    if(failed)
         cout << "Test Data Correctness: FAILED" << endl;
-    cout << "Test Data Correctness: PASSED" << endl;
+	else
+		cout << "Test Data Correctness: PASSED" << endl;
 	delete[] source;
 }

@@ -57,7 +57,7 @@ int main(int argc, char *argv[])
     TestQuicksortRtH(array, size, 5);
     TestQuicksortRdL(array, size, 5);  // random
     TestQuicksortRdH(array, size, 5);
-    TestQuicksortMdL(array, size, 5);  // median
+	TestQuicksortMdL(array, size, 5);  // median
     TestQuicksortMdH(array, size, 5);
     //output_array(array, size);
     delete[] array;

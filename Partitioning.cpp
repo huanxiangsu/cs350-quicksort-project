@@ -35,18 +35,25 @@ Hoare(int array[], int left, int right)
     int temp;
     while(i < j)
     {
-        while (array[i] <= pivot && i < right)
+        while (i < j && array[i] <= pivot)
             ++i;
-        while (array[j] >= pivot && j >= 0)
+        while (i < j && array[j] >= pivot)
             --j;
-        temp = array[i];
-        array[i] = array[j];
-        array[j] = temp;
+		if (i < j)
+		{
+			temp = array[i];
+			array[i] = array[j];
+			array[j] = temp;
+		}
     }
+	temp = array[i];
+	array[i] = array[right];
+	array[right] = temp;
+	/*
     temp = array[i];
     array[i] = array[right];
     array[right] = array[j];
     array[j] = temp;
-    
+    */
     return i;
 }
