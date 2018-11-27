@@ -38,12 +38,14 @@ void QuicksortRtL(int array[], int left, int right)
     {
         int pivot = Lomuto(array, left, right);
         
+        // if pivot is at the left, left partition is smaller, sort left side first
         if((pivot-1) - left <= right - (pivot+1))
         {
             QuicksortRtL(array, left, pivot - 1);
             // Prepare for tail recursion
             left = pivot + 1;
         }
+        // else, right partition is smaller, sort right side first
         else
         {
             QuicksortRtL(array, pivot + 1, right);
@@ -78,13 +80,13 @@ void QuicksortRtH(int array[], int left, int right)
         
         if((pivot-1) - left <= right - (pivot+1))
         {
-            QuicksortRtL(array, left, pivot - 1);
+            QuicksortRtH(array, left, pivot - 1);
             // Prepare for tail recursion
             left = pivot + 1;
         }
         else
         {
-            QuicksortRtL(array, pivot + 1, right);
+            QuicksortRtH(array, pivot + 1, right);
             // Prepare for tail recursion
             right = pivot - 1;
         }
@@ -194,12 +196,12 @@ void QuicksortMdL(int array[], int left, int right)
         
         if((pivot-1) - left <= right - (pivot+1))
         {
-            QuicksortMdH(array, left, pivot - 1);
+            QuicksortMdL(array, left, pivot - 1);
             left = pivot + 1;
         }
         else
         {
-            QuicksortMdH(array, pivot + 1, right);
+            QuicksortMdL(array, pivot + 1, right);
             right = pivot - 1;
         }
     }
