@@ -53,12 +53,12 @@ int main(int argc, char *argv[])
     cout << endl << endl;
     
     //output_array(array, size);
-    //TestQuicksortRtL(array, size, 5);  // right
-    //TestQuicksortRtH(array, size, 5);
-    //TestQuicksortRdL(array, size, 5);  // random
-    //TestQuicksortRdH(array, size, 5);
-    TestQuicksortMdL(array, size, 1);  // median
-    TestQuicksortMdH(array, size, 1);
+    TestQuicksortRtL(array, size, 5);  // right
+    TestQuicksortRtH(array, size, 5);
+    TestQuicksortRdL(array, size, 5);  // random
+    TestQuicksortRdH(array, size, 5);
+    TestQuicksortMdL(array, size, 5);  // median
+    TestQuicksortMdH(array, size, 5);
     //output_array(array, size);
     delete[] array;
     
