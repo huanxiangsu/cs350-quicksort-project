@@ -1,2 +1,18 @@
-﻿  Partitioning.cpp
+﻿  Test.cpp
+c:\users\domap\onedrive\dom\school\cs350\350project\test.cpp(313): warning C4244: 'return': conversion from '_Rep' to 'int', possible loss of data
+          with
+          [
+              _Rep=double
+          ]
+c:\users\domap\onedrive\dom\school\cs350\350project\test.cpp(324): warning C4244: 'return': conversion from '_Rep' to 'int', possible loss of data
+          with
+          [
+              _Rep=double
+          ]
+c:\users\domap\onedrive\dom\school\cs350\350project\test.cpp(336): warning C4244: 'return': conversion from '_Rep' to 'int', possible loss of data
+          with
+          [
+              _Rep=double
+          ]
+c:\users\domap\onedrive\dom\school\cs350\350project\test.cpp(369): warning C4805: '==': unsafe mix of type 'int' and type 'bool' in operation
   350ProjectVS.vcxproj -> C:\Users\domap\OneDrive\Dom\School\CS350\350Project\Debug\350ProjectVS.exe
