@@ -6,168 +6,288 @@ using namespace std;
 using Clock=std::chrono::high_resolution_clock;
 
 // Tests Lomuto partitioning with a rightmost pivot on random and sorted inputs 5 times
-void    TestQuicksortRtL(int array[], int size, int num)
+void    TestQuicksortRtL(int array[], int size, int num1, int num2, int num3)
 {
     int* copy = new int[size];
     double average_time = 0;
     cout << "==TESTING QUICKSORT RIGHT LOMUTO==" << endl;
     // copy the original array each iteration and quicksort on the copy
-    for (int i = 0; i < num; i++)
+    for (int i = 0; i < num1; i++)
     {
         CopyArray(array, copy, size);
-		average_time += TimeIt(QuicksortRtL,copy,size,"RANDOM INPUT: ");
-		//test_result(copy, size);
-		//test_correctness(array, copy, size);
+        //output_array(copy, size);
+        average_time += TimeIt(QuicksortRtL,copy,size,"RANDOM INPUT: ");
+        //output_array(copy, size);
+        test_result(copy, size);
+        test_correctness(array, copy, size);
     }
-    cout << "Average time for RANDOM INPUT: " << "(" << size << "," << average_time / num << ")" << endl << endl;
+    cout << "Average time for RANDOM INPUT: " << "(" << size << "," << average_time / num1 << ")" << endl << endl;
     
     // sort the original array and then test quicksort on it
     //QuicksortRtL(array, 0, size - 1);  //looks like int *copy is already sorted above, so no need to sort this array
-	average_time = 0;
-    for (int i = 0; i < num; i++)
+    average_time = 0;
+    for (int i = 0; i < num2; i++)
     {
-		average_time += TimeIt(QuicksortRtL, copy, size, "SORTED INPUT: ");
-		//test_result(copy, size);
-		//test_correctness(array, copy, size);
+        //output_array(copy, size);
+        average_time += TimeIt(QuicksortRtL, copy, size, "SORTED INPUT: ");
+        //output_array(copy, size);
+        test_result(copy, size);
+        test_correctness(array, copy, size);
     }
-	cout << "Average time for SORTED INPUT: " << "(" << size << "," << average_time / num << ")" << endl << endl;
-
-	// Reverse copy, since its already sorted, and test on reverse sorted
-	average_time = 0;
-	for (int i = 0; i < num; i++)
-	{
-		ReverseArray(copy, size);
-		average_time += TimeIt(QuicksortRtL, copy, size, "REVERSE SORTED INPUT: ");
-		//test_result(copy, size);
-		//test_correctness(array, copy, size);
-	}
-	cout << "Average time for REVERSE SORTED INPUT: " << "(" << size << "," << average_time / num << ")" << endl << endl;
-
-	delete[] copy;
+    cout << "Average time for SORTED INPUT: " << "(" << size << "," << average_time / num2 << ")" << endl << endl;
+    
+    // Reverse copy, since its already sorted, and test on reverse sorted
+    average_time = 0;
+    for (int i = 0; i < num3; i++)
+    {
+        ReverseArray(copy, size);
+        //output_array(copy, size);
+        average_time += TimeIt(QuicksortRtL, copy, size, "REVERSE SORTED INPUT: ");
+        //output_array(copy, size);
+        test_result(copy, size);
+        test_correctness(array, copy, size);
+    }
+    cout << "Average time for REVERSE SORTED INPUT: " << "(" << size << "," << average_time / num3 << ")" << endl << endl;
+    
+    delete[] copy;
 }
 
 // Tests Hoare partitioning with a rightmost pivot on random and sorted inputs 5 times
-void    TestQuicksortRtH(int array[], int size, int num)
+void    TestQuicksortRtH(int array[], int size, int num1, int num2, int num3)
 {
     int* copy = new int[size];
+    //int copy[size];
     double average_time = 0;
     cout << "==TESTING QUICKSORT RIGHT HOARE==" << endl;
     // copy the original array each iteration and quicksort on the copy
-    for (int i = 0; i < num; i++)
+    for (int i = 0; i < num1; i++)
     {
         CopyArray(array, copy, size);
-		average_time += TimeIt(QuicksortRtH, copy, size, "RANDOM INPUT: ");
-		//test_result(copy, size);
-		//test_correctness(array, copy, size);
+        //output_array(copy, size);
+        average_time += TimeIt(QuicksortRtH, copy, size, "RANDOM INPUT: ");
+        //output_array(copy, size);
+        test_result(copy, size);
+        test_correctness(array, copy, size);
     }
-    cout << "Average time for RANDOM INPUT: " << "(" << size << "," << average_time / num << ")" << endl << endl;
+    cout << "Average time for RANDOM INPUT: " << "(" << size << "," << average_time / num1 << ")" << endl << endl;
     
-	// sort the original array and then test quicksort on it
-	//QuicksortRtH(array, 0, size - 1);
-	average_time = 0;
-	for (int i = 0; i < num; i++)
-	{
-		average_time += TimeIt(QuicksortRtH, copy, size, "SORTED INPUT: ");
-		//test_result(copy, size);
-		//test_correctness(array, copy, size);
-	}
-	cout << "Average time for SORTED INPUT: " << "(" << size << "," << average_time / num << ")" << endl << endl;
-
-	// test on reverse sorted
-	average_time = 0;
-	for (int i = 0; i < num; i++)
-	{
-		ReverseArray(copy, size);
-		average_time += TimeIt(QuicksortRtH, copy, size, "REVERSE SORTED INPUT: ");
-		//test_result(copy, size);
-		//test_correctness(array, copy, size);
-	}
-	cout << "Average time for REVERSE SORTED INPUT: " << "(" << size << "," << average_time / num << ")" << endl << endl;
-
-	delete[] copy;
+    // sort the original array and then test quicksort on it
+    //QuicksortRtH(array, 0, size - 1);
+    average_time = 0;
+    for (int i = 0; i < num2; i++)
+    {
+        //output_array(copy, size);
+        average_time += TimeIt(QuicksortRtH, copy, size, "SORTED INPUT: ");
+        //output_array(copy, size);
+        test_result(copy, size);
+        test_correctness(array, copy, size);
+    }
+    cout << "Average time for SORTED INPUT: " << "(" << size << "," << average_time / num2 << ")" << endl << endl;
+    
+    // test on reverse sorted
+    average_time = 0;
+    for (int i = 0; i < num3; i++)
+    {
+        ReverseArray(copy, size);
+        //output_array(copy, size);
+        average_time += TimeIt(QuicksortRtH, copy, size, "REVERSE SORTED INPUT: ");
+        //output_array(copy, size);
+        test_result(copy, size);
+        test_correctness(array, copy, size);
+    }
+    cout << "Average time for REVERSE SORTED INPUT: " << "(" << size << "," << average_time / num3 << ")" << endl << endl;
+    
+    delete[] copy;
 }
 
 // Tests Lomuto partitioning with a random pivot on random and sorted inputs 5 times
-void    TestQuicksortRdL(int array[], int size, int num)
+void    TestQuicksortRdL(int array[], int size, int num1, int num2, int num3)
 {
     int* copy = new int[size];
     double average_time = 0;
     cout << "==TESTING QUICKSORT RANDOM LOMUTO==" << endl;
     // copy the original array each iteration and quicksort on the copy
-    for (int i = 0; i < num; i++)
+    for (int i = 0; i < num1; i++)
     {
         CopyArray(array, copy, size);
-		average_time += TimeIt(QuicksortRdL, copy, size, "RANDOM INPUT: ");
-		//test_result(copy, size);
-		//test_correctness(array, copy, size);
+        //output_array(copy, size);
+        average_time += TimeIt(QuicksortRdL, copy, size, "RANDOM INPUT: ");
+        //output_array(copy, size);
+        test_result(copy, size);
+        test_correctness(array, copy, size);
     }
-    cout << "Average time for RANDOM INPUT: " << "(" << size << "," << average_time / num << ")" << endl << endl;
+    cout << "Average time for RANDOM INPUT: " << "(" << size << "," << average_time / num1 << ")" << endl << endl;
     
-	// sort the original array and then test quicksort on it
-	//QuicksortRdL(array, 0, size - 1);
-	average_time = 0;
-	for (int i = 0; i < num; i++)
-	{
-		average_time += TimeIt(QuicksortRdL, copy, size, "SORTED INPUT: ");
-		//test_result(copy, size);
-		//test_correctness(array, copy, size);
-	}
-	cout << "Average time for SORTED INPUT: " << "(" << size << "," << average_time / num << ")" << endl << endl;
-
-	// test on reverse sorted
-	average_time = 0;
-	for (int i = 0; i < num; i++)
-	{
-		ReverseArray(copy, size);
-		average_time += TimeIt(QuicksortRdL, copy, size, "REVERSE SORTED INPUT: ");
-		//test_result(copy, size);
-		//test_correctness(array, copy, size);
-	}
-	cout << "Average time for REVERSE SORTED INPUT: " << "(" << size << "," << average_time / num << ")" << endl << endl;
-
-	delete[] copy;
+    // sort the original array and then test quicksort on it
+    //QuicksortRdL(array, 0, size - 1);
+    average_time = 0;
+    for (int i = 0; i < num2; i++)
+    {
+        //output_array(copy, size);
+        average_time += TimeIt(QuicksortRdL, copy, size, "SORTED INPUT: ");
+        //output_array(copy, size);
+        test_result(copy, size);
+        test_correctness(array, copy, size);
+    }
+    cout << "Average time for SORTED INPUT: " << "(" << size << "," << average_time / num2 << ")" << endl << endl;
+    
+    // test on reverse sorted
+    average_time = 0;
+    for (int i = 0; i < num3; i++)
+    {
+        ReverseArray(copy, size);
+        //output_array(copy, size);
+        average_time += TimeIt(QuicksortRdL, copy, size, "REVERSE SORTED INPUT: ");
+        //output_array(copy, size);
+        test_result(copy, size);
+        test_correctness(array, copy, size);
+    }
+    cout << "Average time for REVERSE SORTED INPUT: " << "(" << size << "," << average_time / num3 << ")" << endl << endl;
+    
+    delete[] copy;
 }
 
 // Tests Hoare partitioning with a random pivot on random and sorted inputs 5 times
-void    TestQuicksortRdH(int array[], int size, int num)
+void    TestQuicksortRdH(int array[], int size, int num1, int num2, int num3)
 {
     int* copy = new int[size];
     double average_time = 0;
     cout << "==TESTING QUICKSORT RANDOM HOARE==" << endl;
     // copy the original array each iteration and quicksort on the copy
-    for (int i = 0; i < num; i++)
+    for (int i = 0; i < num1; i++)
     {
         CopyArray(array, copy, size);
-		average_time += TimeIt(QuicksortRdH, copy, size, "RANDOM INPUT: ");
-		//test_result(copy, size);
-		//test_correctness(array, copy, size);
+        //output_array(copy, size);
+        average_time += TimeIt(QuicksortRdH, copy, size, "RANDOM INPUT: ");
+        //output_array(copy, size);
+        test_result(copy, size);
+        test_correctness(array, copy, size);
     }
-    cout << "Average time for RANDOM INPUT: " << "(" << size << "," << average_time / num << ")" << endl << endl;
+    cout << "Average time for RANDOM INPUT: " << "(" << size << "," << average_time / num1 << ")" << endl << endl;
     
     // sort the original array and then test quicksort on it
-	//QuicksortRdH(array, 0, size - 1);
-	average_time = 0;
-	for (int i = 0; i < num; i++)
-	{
-		average_time += TimeIt(QuicksortRdH, copy, size, "SORTED INPUT: ");
-		//test_result(copy, size);
-		//test_correctness(array, copy, size);
-	}
-	cout << "Average time for SORTED INPUT: " << "(" << size << "," << average_time / num << ")" << endl << endl;
-
-	// test on reverse sorted
-	average_time = 0;
-	for (int i = 0; i < num; i++)
-	{
-		ReverseArray(copy, size);
-		average_time += TimeIt(QuicksortRdH, copy, size, "REVERSE SORTED INPUT: ");
-		//test_result(copy, size);
-		//test_correctness(array, copy, size);
-	}
-	cout << "Average time for REVERSE SORTED INPUT: " << "(" << size << "," << average_time / num << ")" << endl << endl;
-
-	delete[] copy;
+    //QuicksortRdH(array, 0, size - 1);
+    average_time = 0;
+    for (int i = 0; i < num2; i++)
+    {
+        //output_array(copy, size);
+        average_time += TimeIt(QuicksortRdH, copy, size, "SORTED INPUT: ");
+        //output_array(copy, size);
+        test_result(copy, size);
+        test_correctness(array, copy, size);
+    }
+    cout << "Average time for SORTED INPUT: " << "(" << size << "," << average_time / num2 << ")" << endl << endl;
+    
+    // test on reverse sorted
+    average_time = 0;
+    for (int i = 0; i < num3; i++)
+    {
+        ReverseArray(copy, size);
+        //output_array(copy, size);
+        average_time += TimeIt(QuicksortRdH, copy, size, "REVERSE SORTED INPUT: ");
+        //output_array(copy, size);
+        test_result(copy, size);
+        test_correctness(array, copy, size);
+    }
+    cout << "Average time for REVERSE SORTED INPUT: " << "(" << size << "," << average_time / num3 << ")" << endl << endl;
+    
+    delete[] copy;
 }
+
+// Tests Lomuto partitioning with a median pivot on random and sorted inputs 5 times
+void    TestQuicksortMdL(int array[], int size, int num1, int num2, int num3)
+{
+    int* copy = new int[size];
+    double average_time = 0;
+    cout << "==TESTING QUICKSORT MEDIAN LOMUTO==" << endl;
+    // copy the original array each iteration and quicksort on the copy
+    for (int i = 0; i < num1; i++)
+    {
+        CopyArray(array, copy, size);
+        //output_array(copy, size);
+        average_time += TimeIt(QuicksortMdL, copy, size, "RANDOM INPUT: ");
+        //output_array(copy, size);
+        test_result(copy, size);
+        test_correctness(array, copy, size);
+    }
+    cout << "Average time for RANDOM INPUT: " << "(" << size << "," << average_time / num1 << ")" << endl << endl;
+    
+    // sort the original array and then test quicksort on it
+    //QuicksortMdL(array, 0, size - 1);
+    average_time = 0;
+    for (int i = 0; i < num2; i++)
+    {
+        //output_array(copy, size);
+        average_time += TimeIt(QuicksortMdL, copy, size, "SORTED INPUT: ");
+        //output_array(copy, size);
+        test_result(copy, size);
+        test_correctness(array, copy, size);
+    }
+    cout << "Average time for SORTED INPUT: " << "(" << size << "," << average_time / num2 << ")" << endl << endl;
+    
+    // test on reverse sorted
+    average_time = 0;
+    for (int i = 0; i < num3; i++)
+    {
+        ReverseArray(copy, size);
+        //output_array(copy, size);
+        average_time += TimeIt(QuicksortMdL, copy, size, "REVERSE SORTED INPUT: ");
+        //output_array(copy, size);
+        test_result(copy, size);
+        test_correctness(array, copy, size);
+    }
+    cout << "Average time for REVERSE SORTED INPUT: " << "(" << size << "," << average_time / num3 << ")" << endl << endl;
+    
+    delete[] copy;
+}
+
+// Tests Hoare partitioning with a median pivot on random and sorted inputs 5 times
+void    TestQuicksortMdH(int array[], int size, int num1, int num2, int num3)
+{
+    int* copy = new int[size];
+    double average_time = 0;
+    cout << "==TESTING QUICKSORT MEDIAN HOARE==" << endl;
+    // copy the original array each iteration and quicksort on the copy
+    for (int i = 0; i < num1; i++)
+    {
+        CopyArray(array, copy, size);
+        //output_array(copy, size);
+        average_time += TimeIt(QuicksortMdH, copy, size, "RANDOM INPUT: ");
+        //output_array(copy, size);
+        test_result(copy, size);
+        test_correctness(array, copy, size);
+    }
+    cout << "Average time for RANDOM INPUT: " << "(" << size << "," << average_time / num1 << ")" << endl << endl;
+    
+    // sort the original array and then test quicksort on it
+    //QuicksortMdH(array, 0, size - 1);
+    average_time = 0;
+    for (int i = 0; i < num2; i++)
+    {
+        //output_array(copy, size);
+        average_time += TimeIt(QuicksortMdH, copy, size, "SORTED INPUT: ");
+        //output_array(copy, size);
+        test_result(copy, size);
+        test_correctness(array, copy, size);
+    }
+    cout << "Average time for SORTED INPUT: " << "(" << size << "," << average_time / num2 << ")" << endl << endl;
+    
+    // test on revers sorted
+    average_time = 0;
+    for (int i = 0; i < num3; i++)
+    {
+        ReverseArray(copy, size);
+        //output_array(copy, size);
+        average_time += TimeIt(QuicksortMdH, copy, size, "REVERSE SORTED INPUT: ");
+        //output_array(copy, size);
+        test_result(copy, size);
+        test_correctness(array, copy, size);
+    }
+    cout << "Average time for REVERSE SORTED INPUT: " << "(" << size << "," << average_time / num3 << ")" << endl << endl;
+    
+    delete[] copy;
+}
+
 
 // Tests Lomuto partitioning with a median pivot on random and sorted inputs 5 times
 void    TestQuicksortMdL(int array[], int size, int num)
