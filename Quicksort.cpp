@@ -175,20 +175,35 @@ void QuicksortMdL(int array[], int left, int right)
     while(left < right)
     {
         // find median of first, middle and last element
-        //int mid = right / 2;
+        int temp;
         int mid = (right - left) / 2 + left;
-        int median = max(min(array[left],array[right]), min(max(array[left],array[right]), array[mid]));
-        // check if median was first or middle element and do a swap if it's either
-        if (median == array[left])
+        
+        // this version reduce the number of comparisons.
+        if(array[right] < array[mid])
         {
-            int temp = array[left];
-            array[left] = array[right];
+            if(array[mid] < array[left])
+            {
+                temp = array[mid];
+                array[mid] = array[right];
+                array[right] = temp;
+            }
+            else if(array[right] < array[left])
+            {
+                temp = array[left];
+                array[left] = array[right];
+                array[right] = temp;
+            }
+        }
+        else if(array[left] < array[mid])
+        {
+            temp = array[mid];
+            array[mid] = array[right];
             array[right] = temp;
         }
-        else if (median == array[mid])
+        else if(array[left] < array[right])
         {
-            int temp = array[mid];
-            array[mid] = array[right];
+            temp = array[left];
+            array[left] = array[right];
             array[right] = temp;
         }
         
@@ -248,6 +263,7 @@ void QuicksortMdH(int array[], int left, int right)
 {
     while(left < right)
     {
+        /*
         // find median of first, middle and last element
         //int mid = right / 2;
         int mid = (right - left) / 2 + left;
@@ -263,6 +279,39 @@ void QuicksortMdH(int array[], int left, int right)
         {
             int temp = array[mid];
             array[mid] = array[right];
+            array[right] = temp;
+        }*/
+        
+        // find median of first, middle and last element
+        int temp;
+        int mid = (right - left) / 2 + left;
+        
+        // this version reduce the number of comparisons.
+        if(array[right] < array[mid])
+        {
+            if(array[mid] < array[left])
+            {
+                temp = array[mid];
+                array[mid] = array[right];
+                array[right] = temp;
+            }
+            else if(array[right] < array[left])
+            {
+                temp = array[left];
+                array[left] = array[right];
+                array[right] = temp;
+            }
+        }
+        else if(array[left] < array[mid])
+        {
+            temp = array[mid];
+            array[mid] = array[right];
+            array[right] = temp;
+        }
+        else if(array[left] < array[right])
+        {
+            temp = array[left];
+            array[left] = array[right];
             array[right] = temp;
         }
         
